@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_basic_widget/presentation/widget_example/screen/widget_examples_screen.dart';
+
+import 'presentation/widget_example/widgets/root_bottom_navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
           appBarTheme: const AppBarTheme(
         backgroundColor: Colors.amber,
       )),
-      home: const WidgetExamplesScreen(),
+      home: const RootBottomNavigation(),
     );
   }
 }
