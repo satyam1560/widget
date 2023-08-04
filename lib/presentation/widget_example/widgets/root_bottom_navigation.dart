@@ -3,6 +3,8 @@ import 'package:flutter_basic_widget/presentation/widget_example/screen/counter_
 import 'package:flutter_basic_widget/presentation/widget_example/screen/list_screen.dart';
 import 'package:flutter_basic_widget/presentation/widget_example/screen/widget_examples_screen.dart';
 
+import '../screen/theme_animation_screen.dart';
+
 class RootBottomNavigation extends StatefulWidget {
   const RootBottomNavigation({super.key});
 
@@ -17,10 +19,16 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
     return Scaffold(
       body: IndexedStack(
         index: _currIndex,
-        children: const [WidgetExamplesScreen(), CounterScreen(), ListScreen()],
+        children: const [
+          WidgetExamplesScreen(),
+          CounterScreen(),
+          ListScreen(),
+          ThemeAnimationScreen()
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.amber,
+          type: BottomNavigationBarType.fixed,
+          backgroundColor: Theme.of(context).colorScheme.primaryContainer,
           onTap: (index) {
             setState(() {
               _currIndex = index;
@@ -30,7 +38,9 @@ class _RootBottomNavigationState extends State<RootBottomNavigation> {
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.star), label: 'Example'),
             BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Counter'),
-            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'List')
+            BottomNavigationBarItem(icon: Icon(Icons.list), label: 'List'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.color_lens), label: 'Theme')
           ]),
     );
   }
